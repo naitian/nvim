@@ -1,6 +1,6 @@
 [submodule "pack/deps/start/mini.deps"]
 	path = pack/deps/start/mini.deps
 	url = https://github.com/nvim-mini/mini.deps
-[submodule "pack/deps/start/vague.nvim"]
-	path = pack/deps/start/vague.nvim
-	url = git@github.com:vague-theme/vague.nvim.git
+[submodule "pack/deps/start/kanagawa.nvim"]
+	path = pack/deps/start/kanagawa.nvim
+	url = git@github.com:rebelot/kanagawa.nvim.git
