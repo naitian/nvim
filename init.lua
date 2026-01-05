@@ -65,6 +65,15 @@ require("blink.cmp").setup({
 
 -- LSP config
 require("mason").setup()
+vim.lsp.config("basedpyright", {
+	settings = {
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "basic"
+			}
+		}
+	}
+})
 vim.lsp.config("ruff", {
 	init_options = {
 		settings = {
@@ -93,6 +102,7 @@ map('n', '<leader>h', ':Pick help<CR>')
 map('n', '<leader>i', ':Pick buffers<CR>')
 map('n', '<leader>p', ':Pick files<CR>')
 map('n', '<leader>n', ':noh<CR>')
+map('n', '<leader>r', ':so ~/.config/nvim/init.lua')
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = true })
