@@ -17,6 +17,7 @@ vim.o.winborder = "rounded"
 
 vim.o.signcolumn = "yes"
 vim.o.scrolloff = 3
+vim.o.cmdheight = 0
 
 -- Colorscheme
 require("kanagawa").setup({
