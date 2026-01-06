@@ -37,6 +37,8 @@ local package_path = vim.fn.stdpath("config")
 require("mini.deps").setup({ path = { package = package_path } })
 local add = MiniDeps.add
 
+add({ source = 'christoomey/vim-tmux-navigator' })
+add({ source = 'tpope/vim-surround' })
 add({ source = 'neovim/nvim-lspconfig' })
 add({ source = 'williamboman/mason.nvim' })
 add({ source = 'nvim-mini/mini.pick' })
