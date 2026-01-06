@@ -44,6 +44,16 @@ add({ source = 'williamboman/mason.nvim' })
 add({ source = 'nvim-mini/mini.pick' })
 add({ source = 'saghen/blink.cmp', checkout = "v1.8.0" })
 add({ source = 'sunaku/tmux-navigate' })
+add({
+	source = 'nvim-treesitter/nvim-treesitter',
+	checkout = 'main',
+	hooks = {
+		pos_checkout = function()
+			vim.cmd(
+				'TSUpdate')
+		end
+	}
+})
 
 require("mini.pick").setup()
 require("blink.cmp").setup({
@@ -53,6 +63,9 @@ require("blink.cmp").setup({
 		default = { 'lsp', 'path', 'snippets', 'buffer' },
 	},
 	fuzzy = { implementation = "prefer_rust_with_warning" }
+})
+require("nvim-treesitter").install({
+	"javascript", "python", "lua", "vimdoc"
 })
 
 -- LSP config
@@ -98,3 +111,10 @@ map('n', '<leader>r', ':so ~/.config/nvim/init.lua<CR>')
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = true })
+
+-- Treesitter highlighting for specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "python" },
+	callback = function() vim.treesitter.start() end,
+})
+
