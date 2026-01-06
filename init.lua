@@ -37,12 +37,12 @@ local package_path = vim.fn.stdpath("config")
 require("mini.deps").setup({ path = { package = package_path } })
 local add = MiniDeps.add
 
-add({ source = 'christoomey/vim-tmux-navigator' })
 add({ source = 'tpope/vim-surround' })
 add({ source = 'neovim/nvim-lspconfig' })
 add({ source = 'williamboman/mason.nvim' })
 add({ source = 'nvim-mini/mini.pick' })
 add({ source = 'saghen/blink.cmp', checkout = "v1.8.0" })
+add({ source = 'sunaku/tmux-navigate' })
 
 require("mini.pick").setup()
 require("blink.cmp").setup({
@@ -93,7 +93,7 @@ map('n', '<leader>h', ':Pick help<CR>')
 map('n', '<leader>i', ':Pick buffers<CR>')
 map('n', '<leader>p', ':Pick files<CR>')
 map('n', '<leader>n', ':noh<CR>')
-map('n', '<leader>r', ':so ~/.config/nvim/init.lua')
+map('n', '<leader>r', ':so ~/.config/nvim/init.lua<CR>')
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = true })
