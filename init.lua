@@ -83,16 +83,9 @@ require("copilot").setup({
 	suggestion = {
 		auto_trigger = true,
 		keymap = {
-			accept = "<Tab>"
+			accept = "<Tab>",
 		}
 	},
-	nes = {
-		enabled = true,
-		auto_trigger = true,
-		keymap = {
-			accept_and_goto = "<Tab>"
-		}
-	}
 })
 
 -- LSP config
