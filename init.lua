@@ -50,6 +50,13 @@ add({ source = 'nvim-mini/mini.pick' })
 add({ source = 'saghen/blink.cmp', checkout = "v1.8.0" })
 add({ source = 'sunaku/tmux-navigate' })
 add({
+	source = 'zbirenbaum/copilot.lua',
+	depends = {
+		"copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+	},
+
+})
+add({
 	source = 'nvim-treesitter/nvim-treesitter',
 	checkout = 'main',
 	hooks = {
@@ -71,6 +78,21 @@ require("blink.cmp").setup({
 })
 require("nvim-treesitter").install({
 	"javascript", "python", "lua", "vimdoc"
+})
+require("copilot").setup({
+	suggestion = {
+		auto_trigger = true,
+		keymap = {
+			accept = "<Tab>"
+		}
+	},
+	nes = {
+		enabled = true,
+		auto_trigger = true,
+		keymap = {
+			accept_and_goto = "<Tab>"
+		}
+	}
 })
 
 -- LSP config
@@ -122,4 +144,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "python" },
 	callback = function() vim.treesitter.start() end,
 })
-
