@@ -19,6 +19,9 @@ vim.o.signcolumn = "yes"
 vim.o.scrolloff = 3
 vim.o.cmdheight = 0
 
+vim.o.foldenable = true
+vim.o.foldmethod = "expr"
+
 -- Colorscheme
 require("kanagawa").setup({
 	colors = {
@@ -113,13 +116,18 @@ map('n', '<leader>i', ':Pick buffers<CR>')
 map('n', '<leader>p', ':Pick files<CR>')
 map('n', '<leader>n', ':noh<CR>')
 map('n', '<leader>r', ':so ~/.config/nvim/init.lua<CR>')
+map('n', '<leader>d', vim.diagnostic.setloclist)
+map('n', 'gd', vim.lsp.buf.definition)
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = true })
 
 -- Treesitter highlighting for specific filetypes
+local function setup_treesitter()
+	vim.treesitter.start()
+end
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "python" },
-	callback = function() vim.treesitter.start() end,
+	callback = setup_treesitter,
 })
-
